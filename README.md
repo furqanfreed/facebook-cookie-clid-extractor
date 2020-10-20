@@ -1,24 +1,34 @@
+
+## Abouot
+
+we were using `facebook Click ID` for tracking and found that for some reason clicks coming in through the ads without the fbclid-parameter attached to the url, there would be several reason that it could happen, so to fix this we are using this script which pulls out the fbclid from the cookies (it usually get stored there even though it doesn't appear in the url) and then it reassigns that in the url without reloading (pushState).
+
+
+So if you are using `fbclid` for tracking and yuo are missing some click you can use this script.
+
+
 ## TEST
 
-### Open URL or any sponcer link from facebook
-`https://www.mongodb.com/collateral/how-modern-devops-teams-use-mongodb-atlas-to-enhance-productivity?utm_source=facebook&utm_medium=ps_paid_social&utm_campaign=jf_fb_ww_highcpa_dg_evergreen_commtoatlasmigration_wp_itdm_fullfunnel&utm_content=prospecting_emaillistlal_highcpa_auto_whitepaper_image_na&utm_term=prospecting_emaillistlal_highcpa_auto&fbclid=IwAR2i2gk7IDUbQ3vjz_1M-5MYhQPWPP7a-o-6JlXGGDQ-4M6fFjKjGkD8MaY`
+### Browse sponcer link from facebook
+
+`[a facebook sponcer link](https://www.mongodb.com/collateral/how-modern-devops-teams-use-mongodb-atlas-to-enhance-productivity?utm_source=facebook&utm_medium=ps_paid_social&utm_campaign=jf_fb_ww_highcpa_dg_evergreen_commtoatlasmigration_wp_itdm_fullfunnel&utm_content=prospecting_emaillistlal_highcpa_auto_whitepaper_image_na&utm_term=prospecting_emaillistlal_highcpa_auto&fbclid=IwAR2i2gk7IDUbQ3vjz_1M-5MYhQPWPP7a-o-6JlXGGDQ-4M6fFjKjGkD8MaY)`
 
 ### Open browser developer console 
-see how to open browser developer console (https://support.airtable.com/hc/en-us/articles/232313848-How-to-open-the-developer-console) and copy paste below code and that should give you same fbclid as given in url.
+[see how to open browser developer console](https://support.airtable.com/hc/en-us/articles/232313848-How-to-open-the-developer-console) and copy paste below code and that should give you same fbclid as given in url.
 
-`var cookies = document.cookie
+```javascript
+	var cookies = document.cookie
 	  .split(';')
 	  .map(cookie => cookie.split('='))
 	  .reduce((accumulator, [key, value]) => ({ ...accumulator, [key.trim()]: decodeURIComponent(value) }), {});
 	var fbclick = cookies._fbc;
-console.log("--------------fbclick--------------");	
-console.log(fbclick);	
-console.log("-----------------------------------");	`
 
+	console.log(fbclick);	
+```
 
 **References:**
-https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc/
-https://developers.facebook.com/community/threads/201248874170113/
+1. https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/fbp-and-fbc/
+2. https://developers.facebook.com/community/threads/201248874170113/
 
 **Script Credit:**
 https://github.com/elbomnetanel

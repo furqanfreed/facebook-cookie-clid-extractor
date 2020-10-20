@@ -1,6 +1,6 @@
 {
   "name": "fb-cookie-clid-extractor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "sometime fbclid is missing from url when user click on Facebook Ad but as per developer guide we can get it from cookie, so this code will extract fbclid from cookie and add in url with push state",
   "main": "index.js",
   "scripts": {
