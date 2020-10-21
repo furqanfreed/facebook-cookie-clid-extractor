@@ -1,7 +1,7 @@
 
 ## Abouot
 
-we were using `facebook Click ID` for tracking and found that for some reason clicks coming in through the ads without the fbclid-parameter attached to the url, there would be several reason that it could happen, so to fix this we are using this script which pulls out the fbclid from the cookies (it usually get stored there even though it doesn't appear in the url) and then it reassigns that in the url without reloading (pushState).
+We were using `facebook Click ID` for tracking and found that for some reason clicks coming in through the ads without the fbclid-parameter attached to the url, there would be several reason that it could happen, so to fix this we are using this script which pulls out the fbclid from the cookies (it usually get stored there even though it doesn't appear in the url) and then it reassigns that in the url without reloading (pushState).
 
 
 So if you are using `fbclid` for tracking and yuo are missing some click you can use this script.
